@@ -26,9 +26,16 @@ public class RegistrationController {
 				throw new Exception("user with " + tempEmailId + " already exists");
 			}
 		}
-		User userObj = null;
+		
+		String tempUserName = user.getUserName();
+		if (tempUserName != null) {
+			System.out.println("User name is: " + tempUserName);
+		}
+		
+		User userObj = new User();
 		userObj = service.saverUser(user);
 		return userObj;
+	
 	}
 	
 	@PostMapping("/login")
