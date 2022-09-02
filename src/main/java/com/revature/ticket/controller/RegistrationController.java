@@ -26,11 +26,12 @@ public class RegistrationController {
 				throw new Exception("user with " + tempEmailId + " already exists");
 			}
 		}
-		User userObj = null;
+		User userObj = new User();
 		userObj = service.saverUser(user);
 		return userObj;
-	}
 	
+	}
+
 	@PostMapping("/login")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User loginUser(@RequestBody User user) throws Exception {
