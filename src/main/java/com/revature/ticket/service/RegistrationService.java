@@ -13,8 +13,6 @@ public class RegistrationService {
 	private RegistrationRepo repo;
 	
 	public User saverUser (User user) {
-		//print to console to check what is returned to this method
-		System.out.println("Info from RegistrationService " + user.getUserName());
 		return repo.save(user);
 	}
 	
