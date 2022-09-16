@@ -1,6 +1,7 @@
 package com.revature.ticket.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,24 @@ public class TicketService {
 	
 	public List<Ticket> fetchAllTickets(){
 		return ticketrepo.findAll();
+	}
+	
+	public Ticket saveTicketToSQL(Ticket ticket) {
+		return ticketrepo.save(ticket);
+	}
+	
+	public Optional<Ticket> fetchTicketById(int id) {
+		return ticketrepo.findById(id);
+	}
+	
+	public String deleteTicketById(int id) {
+		String result;
+		try {
+			ticketrepo.deleteById(id);
+			result = "ticket successfully deleted";
+		} catch (Exception e) {
+			result = "ticket with ID " + id + " is not deleted";
+		}
+		return result;
 	}
 }
