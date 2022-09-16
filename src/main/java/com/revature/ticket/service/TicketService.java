@@ -27,6 +27,10 @@ public class TicketService {
 		return ticketrepo.findById(id);
 	}
 	
+	public List<Ticket> fetchTicketByPriority(String priority){
+		return ticketrepo.findAllByPriority(priority);
+	}
+	
 	public String deleteTicketById(int id) {
 		String result;
 		try {

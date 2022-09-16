@@ -40,6 +40,11 @@ public class TicketController {
 		return ticketservice.fetchTicketById(id).get();
 	}
 	
+	@GetMapping (path = "/admin/priority/{priority}")
+	public List<Ticket> displayTicketById(@PathVariable String priority) {
+		return ticketservice.fetchTicketByPriority(priority);
+	}
+	
 	@DeleteMapping (path = "/admin/deleteticket/{id}")
 	public String deleteTicketById(@PathVariable int id) {
 		return ticketservice.deleteTicketById(id);
